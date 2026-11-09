@@ -1,0 +1,13 @@
+{
+  "name": "@codeme/oem-sdk",
+  "version": "1.0.0",
+  "description": "TypeScript SDK for embedding Codeme verification engines",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": ["codeme", "oem", "verification", "ast", "invariants"],
+  "author": "Codeme Maintainers <oss@codeme.io>",
+  "license": "Apache-2.0"
+}
