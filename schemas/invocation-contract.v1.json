@@ -1,0 +1,41 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CodemeInvocationContract",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["version", "command", "target_path"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "enum": ["1.0.0"]
+    },
+    "command": {
+      "type": "string",
+      "enum": ["syntax", "quality", "verify", "invariant", "toolchain"]
+    },
+    "target_path": {
+      "type": "string"
+    },
+    "fix": {
+      "type": "boolean",
+      "default": false
+    },
+    "verbose": {
+      "type": "boolean",
+      "default": false
+    },
+    "format": {
+      "type": "string",
+      "enum": ["text", "json", "sarif"],
+      "default": "text"
+    },
+    "sandbox": {
+      "type": "boolean",
+      "default": false
+    },
+    "options": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

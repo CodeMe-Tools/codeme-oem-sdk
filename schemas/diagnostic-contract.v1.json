@@ -1,0 +1,49 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "CodemeDiagnosticContract",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["run_id", "status", "exit_code", "diagnostics", "token_metrics"],
+  "properties": {
+    "run_id": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["success", "violation", "configuration_error", "licensing_error", "fatal"]
+    },
+    "exit_code": {
+      "type": "integer"
+    },
+    "duration_ms": {
+      "type": "number"
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["code", "file", "line", "column", "message", "remediation"],
+        "properties": {
+          "code": { "type": "string" },
+          "file": { "type": "string" },
+          "line": { "type": "integer" },
+          "column": { "type": "integer" },
+          "severity": { "type": "string", "enum": ["error", "warning", "info"] },
+          "message": { "type": "string" },
+          "remediation": { "type": "string" },
+          "rule_id": { "type": "string" }
+        }
+      }
+    },
+    "token_metrics": {
+      "type": "object",
+      "required": ["raw_output_bytes", "diagnostic_bytes", "suppressed_bytes", "estimated_tokens_saved"],
+      "properties": {
+        "raw_output_bytes": { "type": "integer" },
+        "diagnostic_bytes": { "type": "integer" },
+        "suppressed_bytes": { "type": "integer" },
+        "estimated_tokens_saved": { "type": "integer" }
+      }
+    }
+  }
+}
